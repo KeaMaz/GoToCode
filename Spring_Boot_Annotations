@@ -100,5 +100,3 @@
 
 //Defines the metadata that is used to determine how to parse and execute SQL scripts configured via the @Sql annotation
 @SqlConfig
-
-//
