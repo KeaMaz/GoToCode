@@ -1,0 +1,104 @@
+//Applied on bean setter methods
+@Required
+
+//Applied on fields, setter methods and constructors (injects object dependency implicitly)
+@Autowired
+  eg
+    public class Customer {
+    @Autowired                               
+    private Person person;                   
+    private int type;
+  }
+
+//Used along with @Autowired, when you need more control of the dependency injection process
+@Qualifier
+  eg
+   @Component
+   public class BeanA {
+   @Autowired
+   @Qualifier("beanB2")
+   private BeanInterface dependency;
+   ...
+  } 
+
+//Used on classes which define beans
+@Configuration
+  eg
+    @Configuration
+    public class DataConfig{ }
+
+//Used with @Configuration to allow Spring to know the packages to scan for 
+@ComponentScan
+
+//Used at the method level, works with @Configuration to create Spring beans
+@Bean
+  eg
+    @Configuration
+    public class AppConfig{
+    @Bean
+    public Person person(){
+      return new Person(address());
+     }
+   }
+   
+//Used on component classes, this will be created and initailized only when it is first requested for
+@Lazy
+
+//It indicates a default value expression for the field or parameter to initialize the property with
+@Value
+
+//Placed on the main application class, it defines a base "search package"
+@EnableAutoConfiguration
+
+//Is used on the application class while setting up a Spring Boot project
+@SpringBootApplication
+
+//Used on both class and method level. Used to map web requests onto specific handler classes and handler methods
+@RequestMapping
+
+//HTTP GET
+@GetMapping
+
+//HTTP POST
+@PostMapping
+
+//HTTP PUT
+@PutMapping
+
+//HTTP PUT
+@PutMapping
+
+//HTTP DELETE
+@DeleteMapping
+
+//Used at method level to handle exception at the controller level
+@ExceptionHandler
+
+//This is a meta annotation that indicates a web mapping annotation. Used on fields
+@Mappings and @Mapping
+
+//Used to request handler method arguments
+@PathVariable
+
+//Used to bind the request attribute to a handler method parameter
+@RequestAttribute
+
+//Used to annotate request handler method arguments
+@RequestBody
+
+//Marks the class as a controller where every method returns a domain object instead of a view
+@RestController
+
+//Applied to Java classes
+@EnableEurekaServer
+
+//Used to create the web version of the application context
+@WebAppConfiguration
+
+//Declared on a test class or test method to run SQL scripts against a database
+@Sql
+
+//Defines the metadata that is used to determine how to parse and execute SQL scripts configured via the @Sql annotation
+@SqlConfig
+
+//
