@@ -1,0 +1,1 @@
+Write a program in Spring Boot, add intergation into sql database then Read the data in the collection and then Flatten to write into mongoDb
