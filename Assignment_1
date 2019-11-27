@@ -4,39 +4,17 @@ add intergation into sql database then Read the data in the collection and then 
 steps:
 1)Create application manually or through spring initializer
 
-2)Create a package in src\main\java\com.example.Name\ called model, then create Java class
-
-3)In the class declare your variables then set and/or return them
+2)Create a package in src\main\java\com.example.Name and call the package model. Enter you variables then have the get and set methods
   eg
-     @NonNull
-     private int ISBN;
-     
-     public Book(int ISBN){
-        super();
-        this.ISBN = ISBN;
-     }
+      private int id;
       
-     public int getISBN(){
-        return ISBN;
-     } 
-     
-4)Create a repository to access the data. Create package in src\main\java\com.example.Name\ called repository then create Java interface
-
-5)Extend CrudRepositiry in the interface
-   eg
-       //CrudRepository interface requires the entity class and its ID type
-       public interface BookRepository extends CrudRepository<Book, Long>{
-       }
- 
- 6)Create a RestController. Create package in src\main\java\com.example.Name\ called controller then create Java class
- 
- 7)Add @RequestMapping("className") and @RestController
- 
- 8)Inject the repository in the Controller Class
-   eg
-      private final BookRepository repository;
-
-      public BookController(BookRepository repository){
-           this.repository = repository;
+      public void setId(int id){
+        this.id = id;
       }
- 
+      public int getId(){
+        return id;
+      }
+      
+3)Create a package in src\main\java\com.example.Name and call the package controller. Add you endpoints
+  eg
+  
