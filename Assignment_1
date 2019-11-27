@@ -1,4 +1,8 @@
 Write a program in Spring Boot,
 add intergation into sql database then Read the data in the collection and then Flatten to write into mongoDb
 
+Steps:
 
+1)Use sqlcmd. Open cmd terminal and type sqlcmd to use this
+
+2)Create a database
