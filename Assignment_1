@@ -17,4 +17,20 @@ steps:
       
 3)Create a package in src\main\java\com.example.Name and call the package controller. Add you endpoints
   eg
-  
+       public static Map<String, Customer> customerRepo = new HashMap<>();
+        static {
+          Customer kea = new Customer();
+          kea.setId("1");
+        }
+        
+        //get the values 
+        @RequestMapping(value = "/customers")
+        public ResponseEntity<Object> getCustomer(){
+          return new ResponseEntity<>(customerRepo.values(), HttpStatus.OK);
+        }
+        
+  4)Make sure you download Maven then set the path in envrionment variables then run in terminal
+    eg
+      mvn clean install
+      
+  5)Run the executable jar file you created then test in Postman
