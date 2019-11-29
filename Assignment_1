@@ -5,4 +5,47 @@ Steps:
 
 1)Use sqlcmd. Open cmd terminal and type sqlcmd to use this
 
-2)Create a database
+2)Create a database manually or with mysqlCommand Line
+  eg
+      mysql -> CREATE DATABASE databaseName;
+      mysql -> USE databaseName;
+      mysql -> CREATE TABLE tableName;
+      //to view the table
+      mysql -> SELECT * FROM tableName;
+      
+3)Add to the application.properties file
+  eg
+      spring.datasource.driverClassName = com.mysql.cj.jdbc.Driver
+      spring.datasource.url = jdbc:mysql://localhost:3306/Customers?autoreconnect = true
+      spring.datasource.username = root
+      spring.datasource.password = root
+      spring.datasource.testOnBorrow = true
+      spring.datasource.testWhileIdle = true
+      spring.datasource.timeBetweenEvictionRunsMillis = 60000
+      spring.datasource.minEvictableTimeMillis = 30000
+      spring.datasource.validateQuery = SELECT 1
+      spring.datasource.max-active = 15
+      spring.datasource.max-idle = 10
+      spring.datasource.max-wait = 8000
+
+4)Create Package called Model then create Java class 
+  eg
+      public class Name{
+          private String id;
+      }
+      
+      public Name(String id){
+          this.id = id;
+      }
+      
+      public void setId(String id){this.id = id;}
+      public String getId(){return id;}
+      
+5)Create Package Repository then create Java class
+  eg
+      @Repository
+      public class Name{
+          
+          @Autowired
+          JdbcTemplate template;
+      }
