@@ -3,7 +3,7 @@ add intergation into sql database then Read the data in the collection and then 
 
 Steps:
 
-1)Use sqlcmd. Open cmd terminal and type sqlcmd to use this
+1)Use mysqlCommand Line. Open cmd terminal and type mysqlCommand Line to use this
 
 2)Create a database manually or with mysqlCommand Line
   eg
@@ -41,11 +41,39 @@ Steps:
       public void setId(String id){this.id = id;}
       public String getId(){return id;}
       
-5)Create Package Repository then create Java class
+5)Create Package called Repository then create Java class
   eg
       @Repository
       public class Name{
           
           @Autowired
           JdbcTemplate template;
+          
+          public List<ModelClassName> getAllName(){
+              List<ModelClassName> anyName = template.query("select tableColumns from tableName", (result, rowNum) -> new ConstructorCreatedName(result.getString(tableColumns)));
+              returns anyName;
+          }
       }
+ 
+ 6)Create Package called Controller then create Java class
+   eg
+        @RestController
+        public class Name{
+        
+            @Autowired
+            RepositoryName anyName;
+            
+            @RequestMapping("/getAllName")
+            @ResponseBody
+            public List<ModelClassName> getAllName(){ return anyName.getAllName();}
+        }
+ 
+ 7)If you haven't created your executable file, do that
+    eg
+        mvn clean install
+ 
+ 8)Run the application
+ 
+ 9)Go to the localhost
+    eg
+        localhost:8080/getAllName
