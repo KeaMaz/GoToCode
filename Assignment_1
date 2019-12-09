@@ -86,15 +86,35 @@ Steps:
     eg
         public interface CustomerRepository extends MongoRepoistory<modelClassName, String>{}
         
-  11)Create a package named Service, then create a class. Add the @Service annotation on top of the class
+ 11)Create a package named Service, then create a class. Add the @Service annotation on top of the class
   
-  12)Have the @Autowired annotation to use other scripts
+ 12)Have the @Autowired annotation to use other scripts
     eg
         @Autowired
         CustomerRepository name;
         
-  13)Create the operations
+ 13)Create the operations
     eg
         public modelClassName create(parameters eg String id){
             return name.save(new modelClassName(parameters eg id));
         }
+        
+        public List<modelClassName> getAll(){
+            return name.findAll();
+        }
+        
+  14)In the package Controller, create a class. Add @RestController at the top of the class
+  
+  15)Use the RequestMapping to map the operations
+      eg
+          @RequestMapping("/create")
+          public String create(String id, String name, String surname, String email){
+              modelClassName c = serviceClassName.create(id, name, surname, email);
+          }
+          
+          @RequestMapping("/getAll")
+          public List<modelClassName> getAll(){ return serviceClassName.getAll();}
+  
+   16)In the main method, add @Configuration and @EnableSwagger2. This enables you to use Swagger eg  localhost:8080/swagger-ui.html, as a interface for your operations
+   
+   
