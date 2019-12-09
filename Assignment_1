@@ -77,3 +77,24 @@ Steps:
  9)Go to the localhost
     eg
         localhost:8080/getAllName
+        
+        
+        
+ //Mongodb
+ 
+ 10)In Repository create a interface and extend MongoRepository
+    eg
+        public interface CustomerRepository extends MongoRepoistory<modelClassName, String>{}
+        
+  11)Create a package named Service, then create a class. Add the @Service annotation on top of the class
+  
+  12)Have the @Autowired annotation to use other scripts
+    eg
+        @Autowired
+        CustomerRepository name;
+        
+  13)Create the operations
+    eg
+        public modelClassName create(parameters eg String id){
+            return name.save(new modelClassName(parameters eg id));
+        }
